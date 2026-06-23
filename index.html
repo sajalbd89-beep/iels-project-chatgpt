@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
 <title>IELTS Reading Test</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
 
 </head>
 <body>
 
+
 <header>
 
 <div class="logo">
+
 IELTS Reading Test
+
 </div>
 
-<div class="timer-box">
-59:59
+
+<div id="timer"
+class="timer-box">
+
+60:00
+
 </div>
 
 </header>
 
 
+
 <div class="main-container">
 
-<!-- LEFT SIDE -->
+
+<!-- LEFT -->
 
 <div class="passage-section">
 
-<h2>READING PASSAGE 1</h2>
+<h2 id="passageTitle">
 
-<div class="passage-content">
+Reading Passage
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</h2>
 
-Official IELTS reading passage will appear here.
+<div id="passageContent"
+class="passage-content">
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Loading...
 
 </div>
 
 </div>
 
 
-<!-- RIGHT SIDE -->
+<!-- RIGHT -->
 
 <div class="question-section">
 
-<h2>Questions 1-40</h2>
+<h2>
 
+Questions
 
-<div class="question">
+</h2>
 
-<p>1. Sample Question?</p>
-
-<input type="text"
-placeholder="Type your answer">
+<div id="questionContainer">
 
 </div>
 
-
-<div class="question">
-
-<p>2. Sample Question?</p>
-
-<input type="text"
-placeholder="Type your answer">
-
-</div>
-
-
-<button class="submit-btn">
+<button
+id="submitBtn"
+class="submit-btn">
 
 Submit Test
 
@@ -91,7 +92,54 @@ Submit Test
 
 </div>
 
+
 </div>
+
+
+
+<div id="resultModal"
+class="hidden">
+
+<div class="modal-content">
+
+<h1>
+
+Result
+
+</h1>
+
+<h2 id="scoreText">
+
+</h2>
+
+<h2 id="bandText">
+
+</h2>
+
+<button
+onclick="closeModal()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<script src="js/payload.js"></script>
+
+<script src="js/renderer.js"></script>
+
+<script src="js/timer.js"></script>
+
+<script src="js/scorer.js"></script>
+
+<script src="js/bandScore.js"></script>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
