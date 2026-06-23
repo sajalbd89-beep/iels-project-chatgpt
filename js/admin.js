@@ -275,8 +275,6 @@ addBtn.addEventListener("click", () => {
 });
 
 
-// Generate Link
-
 document
 .getElementById("generateLink")
 .addEventListener("click", () => {
@@ -296,6 +294,89 @@ document
         questions: []
 
     };
+
+
+    document
+    .querySelectorAll(".question-card")
+    .forEach(card => {
+
+        const qText =
+        card.querySelector(".questionText")?.value || "";
+
+        const answer =
+        card.querySelector(".correctAnswer")?.value || "";
+
+
+        let q = {
+
+            question: qText,
+
+            answer: answer,
+
+            type: card.dataset.type
+
+        };
+
+
+        // MCQ + Multiple Answers
+
+        if (
+
+            card.dataset.type === "Multiple Choice"
+
+            ||
+
+            card.dataset.type === "Multiple Answers"
+
+        ) {
+
+            q.options = [
+
+                card.querySelector(".optionA")?.value || "",
+
+                card.querySelector(".optionB")?.value || "",
+
+                card.querySelector(".optionC")?.value || "",
+
+                card.querySelector(".optionD")?.value || ""
+
+            ];
+
+        }
+
+
+        exam.questions.push(q);
+
+    });
+
+
+
+    try {
+
+        const payload =
+        btoa(
+            JSON.stringify(exam)
+        );
+
+        const link =
+        `${location.origin}/index.html?payload=${payload}`;
+
+
+        document
+        .getElementById("generatedLink")
+        .value = link;
+
+    }
+
+    catch {
+
+        alert(
+            "Failed to generate exam."
+        );
+
+    }
+
+});
 
 
 
