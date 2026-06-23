@@ -17,20 +17,20 @@ palette.innerHTML="";
 exam.questions.forEach(
 (q,index)=>{
 
-// Palette Button
+// palette button
 
-const box =
+const pBtn =
 document.createElement(
 "button"
 );
 
-box.className=
+pBtn.className=
 "palette-btn";
 
-box.innerText=
+pBtn.innerText=
 index+1;
 
-box.onclick=()=>{
+pBtn.onclick=()=>{
 
 document
 .getElementById(
@@ -45,11 +45,10 @@ behavior:"smooth"
 };
 
 palette.appendChild(
-box
-);
+pBtn );
 
 
-// Question Card
+// question
 
 const div =
 document.createElement(
@@ -69,13 +68,64 @@ div.innerHTML=`
 
 <p>
 
-${index+1}. ${q.question}
+${index+1}.
+${q.question}
 
 </p>
 
+<label>
+
 <input
-id="q${index}"
-placeholder="Answer A/B/C/D">
+type="radio"
+name="q${index}"
+value="A">
+
+A.
+${q.options[0]}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="q${index}"
+value="B">
+
+B.
+${q.options[1]}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="q${index}"
+value="C">
+
+C.
+${q.options[2]}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="q${index}"
+value="D">
+
+D.
+${q.options[3]}
+
+</label>
 
 `;
 
@@ -87,7 +137,8 @@ div.innerHTML=`
 
 <p>
 
-${index+1}. ${q.question}
+${index+1}.
+${q.question}
 
 </p>
 
@@ -101,8 +152,8 @@ placeholder="Type answer">
 
 
 container.appendChild(
-div);
+div
+);
 
 });
-
 }
