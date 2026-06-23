@@ -9,42 +9,114 @@ addBtn.addEventListener("click", () => {
     const type = typeSelect.value;
 
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card question-card";
 
-    // MCQ
+    // Multiple Choice
+
     if (type === "Multiple Choice") {
 
         card.innerHTML = `
-        <h3>Question ${questionCount}</h3>
 
-        <input class="questionText"
+        <h2>Question ${questionCount}</h2>
+
+        <input
+        class="questionText"
         placeholder="Question">
 
-        <input class="optionA"
+        <br><br>
+
+        <input
+        class="optionA"
         placeholder="Option A">
 
-        <input class="optionB"
+        <br><br>
+
+        <input
+        class="optionB"
         placeholder="Option B">
 
-        <input class="optionC"
+        <br><br>
+
+        <input
+        class="optionC"
         placeholder="Option C">
 
-        <input class="optionD"
+        <br><br>
+
+        <input
+        class="optionD"
         placeholder="Option D">
 
-        <input class="correctAnswer"
+        <br><br>
+
+        <input
+        class="correctAnswer"
         placeholder="Correct Answer (A/B/C/D)">
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
         `;
+
+    }
+
+    // Multiple Answers
+
+    else if (type === "Multiple Answers") {
+
+        card.innerHTML = `
+
+        <h2>Question ${questionCount}</h2>
+
+        <input
+        class="questionText"
+        placeholder="Choose TWO answers">
+
+        <br><br>
+
+        <input class="optionA" placeholder="Option A">
+        <br><br>
+
+        <input class="optionB" placeholder="Option B">
+        <br><br>
+
+        <input class="optionC" placeholder="Option C">
+        <br><br>
+
+        <input class="optionD" placeholder="Option D">
+
+        <br><br>
+
+        <input
+        class="correctAnswer"
+        placeholder="Example: A,C">
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
+        `;
+
     }
 
     // TFNG
+
     else if (type === "True False Not Given") {
 
         card.innerHTML = `
-        <h3>Question ${questionCount}</h3>
 
-        <input class="questionText"
+        <h2>Question ${questionCount}</h2>
+
+        <input
+        class="questionText"
         placeholder="Statement">
+
+        <br><br>
 
         <select class="correctAnswer">
 
@@ -55,17 +127,30 @@ addBtn.addEventListener("click", () => {
             <option>Not Given</option>
 
         </select>
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
         `;
+
     }
 
     // YNNG
+
     else if (type === "Yes No Not Given") {
 
         card.innerHTML = `
-        <h3>Question ${questionCount}</h3>
 
-        <input class="questionText"
+        <h2>Question ${questionCount}</h2>
+
+        <input
+        class="questionText"
         placeholder="Statement">
+
+        <br><br>
 
         <select class="correctAnswer">
 
@@ -76,43 +161,135 @@ addBtn.addEventListener("click", () => {
             <option>Not Given</option>
 
         </select>
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
         `;
+
     }
 
     // Sentence Completion
+
     else if (type === "Sentence Completion") {
 
         card.innerHTML = `
-        <h3>Question ${questionCount}</h3>
 
-        <textarea class="questionText"
-        placeholder="Example:
+        <h2>Question ${questionCount}</h2>
 
-The experiment lasted for [blank].">
+        <textarea
+        class="questionText"
+        placeholder="Use [blank] where answer box should appear">
 
         </textarea>
 
-        <input class="correctAnswer"
-        placeholder="Correct Answer">
+        <br><br>
+
+        <input
+        class="correctAnswer"
+        placeholder="Correct answer">
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
         `;
+
+    }
+
+    // Summary Completion
+
+    else if (type === "Summary Completion") {
+
+        card.innerHTML = `
+
+        <h2>Question ${questionCount}</h2>
+
+        <textarea
+        class="questionText"
+        placeholder="Summary with [blank]">
+
+        </textarea>
+
+        <br><br>
+
+        <input
+        class="correctAnswer"
+        placeholder="Answer">
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
+        `;
+
+    }
+
+    // Short Answer
+
+    else if (type === "Short Answer Questions") {
+
+        card.innerHTML = `
+
+        <h2>Question ${questionCount}</h2>
+
+        <input
+        class="questionText"
+        placeholder="Question">
+
+        <br><br>
+
+        <input
+        class="correctAnswer"
+        placeholder="Answer">
+
+        <button class="delete-btn">
+
+        Delete
+
+        </button>
+
+        `;
+
     }
 
     builder.appendChild(card);
 
     questionCount++;
 
+    card
+    .querySelector(".delete-btn")
+    .addEventListener("click", () => {
+
+        card.remove();
+
+    });
+
 });
+
+
+// Generate Link
+
 document
 .getElementById("generateLink")
 .addEventListener("click", () => {
 
     const exam = {
 
-        title: document
+        title:
+        document
         .getElementById("passageTitle")
         .value,
 
-        passage: document
+        passage:
+        document
         .getElementById("passageContent")
         .value,
 
@@ -121,8 +298,9 @@ document
     };
 
 
+
     document
-    .querySelectorAll("#questionBuilder .card")
+    .querySelectorAll(".question-card")
     .forEach(card => {
 
         const qText =
@@ -131,57 +309,72 @@ document
         const answer =
         card.querySelector(".correctAnswer")?.value;
 
-        let question = {
 
-            type: typeSelect.value,
+        let q = {
 
             question: qText,
 
-            answer: answer
+            answer: answer,
+
+            type:
+            typeSelect.value
 
         };
 
 
-        // MCQ options
+        if (
 
-        if(typeSelect.value==="Multiple Choice"){
+            typeSelect.value === "Multiple Choice"
 
-            question.options=[
+            ||
 
-                card.querySelector(".optionA").value,
+            typeSelect.value === "Multiple Answers"
 
-                card.querySelector(".optionB").value,
+        ) {
 
-                card.querySelector(".optionC").value,
+            q.options = [
 
-                card.querySelector(".optionD").value
+                card.querySelector(".optionA")?.value,
+
+                card.querySelector(".optionB")?.value,
+
+                card.querySelector(".optionC")?.value,
+
+                card.querySelector(".optionD")?.value
 
             ];
 
         }
 
-        exam.questions.push(question);
+
+        exam.questions.push(q);
 
     });
 
 
-    try{
+
+    try {
 
         const payload =
-        btoa(JSON.stringify(exam));
+        btoa(
+            JSON.stringify(exam)
+        );
 
         const link =
         `${location.origin}/index.html?payload=${payload}`;
 
+
         document
         .getElementById("generatedLink")
-        .value=link;
+        .value = link;
 
     }
 
-    catch{
+    catch {
 
-        alert("Failed to generate exam link.");
+        alert(
+            "Failed to generate exam."
+        );
 
     }
 
