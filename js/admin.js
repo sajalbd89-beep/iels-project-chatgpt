@@ -102,3 +102,87 @@ The experiment lasted for [blank].">
     questionCount++;
 
 });
+document
+.getElementById("generateLink")
+.addEventListener("click", () => {
+
+    const exam = {
+
+        title: document
+        .getElementById("passageTitle")
+        .value,
+
+        passage: document
+        .getElementById("passageContent")
+        .value,
+
+        questions: []
+
+    };
+
+
+    document
+    .querySelectorAll("#questionBuilder .card")
+    .forEach(card => {
+
+        const qText =
+        card.querySelector(".questionText")?.value;
+
+        const answer =
+        card.querySelector(".correctAnswer")?.value;
+
+        let question = {
+
+            type: typeSelect.value,
+
+            question: qText,
+
+            answer: answer
+
+        };
+
+
+        // MCQ options
+
+        if(typeSelect.value==="Multiple Choice"){
+
+            question.options=[
+
+                card.querySelector(".optionA").value,
+
+                card.querySelector(".optionB").value,
+
+                card.querySelector(".optionC").value,
+
+                card.querySelector(".optionD").value
+
+            ];
+
+        }
+
+        exam.questions.push(question);
+
+    });
+
+
+    try{
+
+        const payload =
+        btoa(JSON.stringify(exam));
+
+        const link =
+        `${location.origin}/index.html?payload=${payload}`;
+
+        document
+        .getElementById("generatedLink")
+        .value=link;
+
+    }
+
+    catch{
+
+        alert("Failed to generate exam link.");
+
+    }
+
+});
