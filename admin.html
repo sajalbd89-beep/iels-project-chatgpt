@@ -1,126 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>IELTS Creator Dashboard</title>
+<title>
+IELTS Support | Creator Dashboard
+</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#edf2f7;
+}
+
+.admin-container{
+display:flex;
+height:100vh;
+}
+
+.sidebar{
+width:270px;
+background:#0d1b2a;
+color:white;
+padding:30px;
+overflow:auto;
+}
+
+.brand-title{
+font-size:28px;
+font-weight:700;
+}
+
+.brand-subtitle{
+font-size:13px;
+margin-top:8px;
+color:#cfd8e3;
+line-height:1.7;
+}
+
+.menu{
+margin-top:40px;
+}
+
+.menu button{
+width:100%;
+height:55px;
+margin-bottom:15px;
+border:none;
+background:#1b263b;
+color:white;
+font-size:16px;
+border-radius:14px;
+cursor:pointer;
+}
+
+.main{
+flex:1;
+padding:40px;
+overflow:auto;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+margin-bottom:30px;
+box-shadow:
+0 10px 25px rgba(0,0,0,.07);
+}
+
+label{
+display:block;
+font-weight:600;
+margin-bottom:15px;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:16px;
+border-radius:14px;
+border:1px solid #dcdcdc;
+font-size:16px;
+box-sizing:border-box;
+}
+
+textarea{
+height:250px;
+resize:vertical;
+}
+
+.action-btn{
+height:60px;
+border:none;
+background:#00509d;
+color:white;
+font-size:18px;
+font-weight:700;
+border-radius:16px;
+cursor:pointer;
+width:100%;
+margin-top:20px;
+}
+
+.question-card{
+background:#fafafa;
+padding:25px;
+border-radius:18px;
+margin-top:25px;
+border:1px solid #e0e0e0;
+}
+
+.delete-btn{
+margin-top:20px;
+background:#c1121f;
+border:none;
+color:white;
+height:50px;
+border-radius:14px;
+width:100%;
+cursor:pointer;
+}
+
+</style>
 
 </head>
+
 <body>
 
 <div class="admin-container">
 
-    <!-- Sidebar -->
+<div class="sidebar">
 
-    <div class="sidebar">
+<div class="brand-title">
 
-        <h2>IELTS Creator</h2>
+IELTS Support
 
-        <button>Passage</button>
-        <button>Questions</button>
-        <button>Generate Link</button>
+</div>
 
-    </div>
+<div class="brand-subtitle">
 
+Computer-Based Question Bank Exam
 
-    <!-- Main -->
-
-    <div class="admin-main">
-
-        <h1>Create Reading Test</h1>
-
-        <div class="card">
-
-            <label>Passage Title</label>
-
-            <input
-            id="passageTitle"
-            type="text">
-
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="menu">
 
-            <label>Passage Content</label>
+<button>
 
-            <textarea
-            id="passageContent"></textarea>
+Dashboard
 
-        </div>
-
-
-        <div class="card">
-
-            <label>Question Type</label>
-
-            <select id="questionType">
-
-                <option>Multiple Choice</option>
-
-                <option>True False Not Given</option>
-
-                <option>Yes No Not Given</option>
-
-                <option>Sentence Completion</option>
-
-                <option>Summary Completion</option>
-
-                <option>Matching Headings</option>
-
-                <option>Matching Information</option>
-
-                <option>Matching Features</option>
-
-                <option>Matching Sentence Endings</option>
-
-                <option>Short Answer Questions</option>
-
-                <option>Table Completion</option>
-
-                <option>Flow Chart Completion</option>
-
-                <option>Diagram Label Completion</option>
-
-                <option>Map Label Completion</option>
-
-                <option>Plan Label Completion</option>
-
-            </select>
-
-        </div>
-
-
-        <div id="questionBuilder">
-
-        </div>
-
-
-        <button id="addQuestion">
-
-            Add Question
-        </button>
-<button id="generateLink">
-Generate Exam Link
 </button>
+
+<button>
+
+Passage
+
+</button>
+
+<button>
+
+Questions
+
+</button>
+
+<button>
+
+Generate Link
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="main">
+
+<div class="card">
+
+<label>
+
+Passage Title
+
+</label>
+
+<input
+id="passageTitle"
+placeholder="Enter passage title">
+
+</div>
+
+
+
+<div class="card">
+
+<label>
+
+Passage Content
+
+</label>
+
+<textarea
+id="passageContent"
+placeholder="Paste full reading passage">
+
+</textarea>
+
+</div>
+
+
+
+<div class="card">
+
+<label>
+
+Question Type
+
+</label>
+
+<select
+id="questionType">
+
+<option>
+
+Multiple Choice
+
+</option>
+
+<option>
+
+Multiple Answers
+
+</option>
+
+<option>
+
+True False Not Given
+
+</option>
+
+<option>
+
+Yes No Not Given
+
+</option>
+
+<option>
+
+Sentence Completion
+
+</option>
+
+<option>
+
+Summary Completion
+
+</option>
+
+<option>
+
+Short Answer Questions
+
+</option>
+
+</select>
+
+
+<button
+id="addQuestion"
+class="action-btn">
+
+Add Question
+
+</button>
+
+</div>
+
+
+
+<div
+id="questionBuilder">
+
+</div>
+
+
+
+<div class="card">
+
+<button
+id="generateLink"
+class="action-btn">
+
+Generate Exam Link
+
+</button>
+
+
 <br><br>
 
 <textarea
 id="generatedLink"
 readonly
-placeholder="Generated exam link will appear here">
+placeholder="Generated link will appear here">
+
 </textarea>
-    </div>
 
 </div>
+
+
+</div>
+
+</div>
+
 
 <script src="js/admin.js"></script>
 
