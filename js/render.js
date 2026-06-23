@@ -144,6 +144,24 @@ ${q.question}
 
 <input
 id="q${index}"
+
+oninput="
+saveAnswer(
+${index},
+this.value
+);
+
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.background='#2b9348';
+
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.color='white';
+"
+
 placeholder="Type answer">
 
 `;
