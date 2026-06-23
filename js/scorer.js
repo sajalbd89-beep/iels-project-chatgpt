@@ -1,25 +1,33 @@
-function submitExam(){
+function submitExam() {
 
-let score=0;
+let score = 0;
 
+exam.questions.forEach((q,index)=>{
 
-exam.questions.forEach(
-(q,index)=>{
+let answer="";
 
-const answer =
-document
-.getElementById(
-`q${index}`
-)
-.value
-.trim()
-.toLowerCase();
+if(q.type==="Multiple Choice"){
 
+const selected=document.querySelector(
+`input[name="q${index}"]:checked`
+);
+
+answer=selected?.value || "";
+
+}
+else{
+
+answer=document
+.getElementById(`q${index}`)
+?.value
+.trim() || "";
+
+}
 
 if(
-answer===
-q.answer
-.toLowerCase()
+normalizeAnswer(answer)
+===
+normalizeAnswer(q.answer)
 ){
 
 score++;
@@ -28,31 +36,18 @@ score++;
 
 });
 
-
 document
-.getElementById(
-"scoreText"
-)
-innerText=
-`Correct Answers:
-
-${score}/${exam.questions.length}`;
-
-
-document
-.getElementById(
-"bandText"
-)
+.getElementById("scoreText")
 .innerText=
-getBand(score);
-
+`Correct Answers: ${score}/${exam.questions.length}`;
 
 document
-.getElementById(
-"resultModal"
-)
-.classList.remove(
-"hidden"
-);
+.getElementById("bandText")
+.innerText=
+`Estimated ${getBand(score)}`;
+
+document
+.getElementById("resultModal")
+.classList.remove("hidden");
 
 }
