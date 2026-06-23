@@ -9,7 +9,9 @@ addBtn.addEventListener("click", () => {
     const type = typeSelect.value;
 
     const card = document.createElement("div");
-    card.className = "card question-card";
+   card.className = "card question-card";
+
+card.dataset.type = type;
 
     // Multiple Choice
 
