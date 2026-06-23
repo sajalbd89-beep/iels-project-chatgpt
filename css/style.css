@@ -390,3 +390,56 @@ text-align:center;
 width:450px;
 
 }
+.hidden{
+display:none !important;
+}
+
+#resultModal{
+
+backdrop-filter:blur(8px);
+
+z-index:9999;
+
+}
+
+.modal-content h1{
+
+font-size:40px;
+
+margin-bottom:25px;
+
+color:#003566;
+
+}
+
+.modal-content h2{
+
+margin-bottom:20px;
+
+color:#333;
+
+}
+
+.modal-content button{
+
+margin-top:20px;
+
+width:180px;
+
+height:55px;
+
+border:none;
+
+border-radius:15px;
+
+background:#00509d;
+
+color:white;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
