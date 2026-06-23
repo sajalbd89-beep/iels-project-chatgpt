@@ -79,7 +79,17 @@ ${q.question}
 type="radio"
 name="q${index}"
 value="A">
+onclick="
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.background='#2b9348';
 
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.color='white';
+"
 A.
 ${q.options[0]}
 
@@ -93,7 +103,17 @@ ${q.options[0]}
 type="radio"
 name="q${index}"
 value="B">
+onclick="
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.background='#2b9348';
 
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.color='white';
+"
 B.
 ${q.options[1]}
 
@@ -107,7 +127,17 @@ ${q.options[1]}
 type="radio"
 name="q${index}"
 value="C">
+onclick="
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.background='#2b9348';
 
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.color='white';
+"
 C.
 ${q.options[2]}
 
@@ -121,7 +151,17 @@ ${q.options[2]}
 type="radio"
 name="q${index}"
 value="D">
+onclick="
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.background='#2b9348';
 
+document
+.querySelectorAll('.palette-btn')
+[${index}]
+.style.color='white';
+"
 D.
 ${q.options[3]}
 
