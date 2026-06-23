@@ -16,6 +16,8 @@ if(score>=23) return "Band 6";
 
 if(score>=19) return "Band 5.5";
 
-return "Band 5";
+if(score>=15) return "Band 5";
+
+return "Band 4.5";
 
 }
